@@ -1,2 +1,27 @@
-# CalebDochow
-# 4-29-19
+# Caleb Dochow
+# Rock Paper Scissors
+# 4/9/2019
+
+import tkinter as t
+
+class dndApp:
+    def __init__(self, master):
+    
+        # Master Frame
+        self.mycontainer1 = t.Frame(master)
+        self.mycontainer1.pack()
+
+        self.desc = t.Label(self.mycontainer1, text='Welcome to a Dice Simulator!'
+                                                    ' Perfect for all of your Desktop RPG\'s').pack()
+
+        # StartButton
+        self.beginjourney = t.Button(self.mycontainer1, text="Test Your Odds", background='Green').pack()
+
+
+def main():
+    root = t.Tk()
+    dndapp = dndApp(root)
+    root.mainloop()
+
+
+main()
