@@ -4,18 +4,38 @@
 
 import tkinter as t
 
+
 class dndApp:
     def __init__(self, master):
-    
+
         # Master Frame
         self.mycontainer1 = t.Frame(master)
         self.mycontainer1.pack()
 
-        self.desc = t.Label(self.mycontainer1, text='Welcome to a Dice Simulator!'
-                                                    ' Perfect for all of your Desktop RPG\'s').pack()
+        # text
+        self.textframe = t.Frame(self.mycontainer1)
+        self.textframe.pack()
+        self.text = 'Welcome to a Dice Simulator! Perfect for all of your Desktop RPG\'s'
+        self.desc = t.Label(self.textframe, text= self.text)
+        self.desc.pack()
+
+        # Canvas
+        self.graphicframe = t.Frame(self.mycontainer1)
+        self.graphicframe.pack()
+        self.dicecanvas = t.Canvas(self.graphicframe)
+        self.line = self.dicecanvas.create_rectangle(0, 20, 300, 50)
 
         # StartButton
-        self.beginjourney = t.Button(self.mycontainer1, text="Test Your Odds", background='Green').pack()
+        self.buttonframe = t.Frame
+        self.beginjourney = t.Button(self.mycontainer1, text="Test Your Odds", background='Green')
+        self.beginjourney.pack()
+        self.beginjourney.bind("<Button-1>", self.startgame)
+
+    def startgame(self, event):
+        print('started')
+
+    def dice(self):
+        return
 
 
 def main():
