@@ -15,15 +15,14 @@ class dndApp:
         # text
         self.textframe = t.Frame(self.mycontainer1)
         self.textframe.pack()
-        self.text = 'Welcome to a Dice Simulator! Perfect for all of your Desktop RPG\'s'
-        self.desc = t.Label(self.textframe, text= self.text)
+        self.desc = t.Label(self.textframe, text='Welcome to a Dice Simulator! Perfect for all of your Desktop RPG\'s')
         self.desc.pack()
 
         # Canvas
         self.graphicframe = t.Frame(self.mycontainer1)
         self.graphicframe.pack()
         self.dicecanvas = t.Canvas(self.graphicframe)
-        self.line = self.dicecanvas.create_rectangle(0, 20, 300, 50)
+        self.dicecanvas.pack()
 
         # StartButton
         self.buttonframe = t.Frame
@@ -31,11 +30,30 @@ class dndApp:
         self.beginjourney.pack()
         self.beginjourney.bind("<Button-1>", self.startgame)
 
+        self.dieval = 0
+
     def startgame(self, event):
         print('started')
+        self.desc.destroy()
+        self.beginjourney.destroy()
+        self.ingameinsructions = t.Label(self.textframe, text="Select a Button to Begin Rolling")
+        self.ingameinsructions.pack()
+        self.dicecanvas.create_rectangle(115, 50, 265, 200)
+
 
     def dice(self):
-        return
+        if self.dieval == 4:
+            return
+        if self.dieval == 6:
+            return
+        if self.dieval == 8:
+            return
+        if self.dieval == 10:
+            return
+        if self.dieval == 12:
+            return
+        if self.dieval == 20:
+            return
 
 
 def main():
