@@ -24,13 +24,27 @@ class dndApp:
         self.dicecanvas = t.Canvas(self.graphicframe)
         self.dicecanvas.pack()
 
+        # Cool D20 logo
+
+        self.dicecanvas.create_bitmap(100, 50, 200, 100)
+
+
+
         # StartButton
-        self.buttonframe = t.Frame
         self.beginjourney = t.Button(self.mycontainer1, text="Test Your Odds", background='Green')
         self.beginjourney.pack()
         self.beginjourney.bind("<Button-1>", self.startgame)
 
         self.dieval = 0
+        self.buttonwidth = 20
+
+        # DiceButtons
+        self.die4 = t.Button(self.mycontainer1, text='Die4', background='blue', width=self.buttonwidth)
+        self.die6 = t.Button(self.mycontainer1, text="Die6", background='red', width=self.buttonwidth)
+        self.die8 = t.Button(self.mycontainer1, text='Die8', background='green', width=self.buttonwidth)
+        self.die10 = t.Button(self.mycontainer1, text='Die10', background='purple', width=self.buttonwidth)
+        self.die12 = t.Button(self.mycontainer1, text='Die12', background='Yellow', width=self.buttonwidth)
+        self.die20 = t.Button(self.mycontainer1, text='Die20', background='orange', width=self.buttonwidth)
 
     def startgame(self, event):
         print('started')
@@ -39,6 +53,12 @@ class dndApp:
         self.ingameinsructions = t.Label(self.textframe, text="Select a Button to Begin Rolling")
         self.ingameinsructions.pack()
         self.dicecanvas.create_rectangle(115, 50, 265, 200)
+        self.die4.pack(side='left')
+        self.die6.pack(side="left")
+        self.die8.pack(side='left')
+        self.die10.pack(side='left')
+        self.die12.pack(side='left')
+        self.die20.pack(side='left')
 
 
     def dice(self):
