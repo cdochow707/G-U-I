@@ -3,6 +3,7 @@
 # 4/9/2019
 
 import tkinter as t
+import random as rm
 
 
 class dndApp:
@@ -18,17 +19,8 @@ class dndApp:
         self.desc = t.Label(self.textframe, text='Welcome to a Dice Simulator! Perfect for all of your Desktop RPG\'s')
         self.desc.pack()
 
-        # Canvas
         self.graphicframe = t.Frame(self.mycontainer1)
         self.graphicframe.pack()
-        self.dicecanvas = t.Canvas(self.graphicframe)
-        self.dicecanvas.pack()
-
-        # Cool D20 logo
-
-        self.dicecanvas.create_bitmap(100, 50, 200, 100)
-
-
 
         # StartButton
         self.beginjourney = t.Button(self.mycontainer1, text="Test Your Odds", background='Green')
@@ -40,11 +32,77 @@ class dndApp:
 
         # DiceButtons
         self.die4 = t.Button(self.mycontainer1, text='Die4', background='blue', width=self.buttonwidth)
+        self.die4.bind("<Button-1>", self.roll4)
         self.die6 = t.Button(self.mycontainer1, text="Die6", background='red', width=self.buttonwidth)
+        self.die6.bind("<Button-1>", self.roll6)
         self.die8 = t.Button(self.mycontainer1, text='Die8', background='green', width=self.buttonwidth)
+        self.die8.bind("<Button-1>", self.roll8)
         self.die10 = t.Button(self.mycontainer1, text='Die10', background='purple', width=self.buttonwidth)
+        self.die10.bind("<Button-1>", self.roll10)
         self.die12 = t.Button(self.mycontainer1, text='Die12', background='Yellow', width=self.buttonwidth)
+        self.die12.bind("<Button-1>", self.roll12)
         self.die20 = t.Button(self.mycontainer1, text='Die20', background='orange', width=self.buttonwidth)
+        self.die20.bind("<Button-1>", self.roll20)
+
+        self.text = t.StringVar()
+        self.text.set('')
+        self.numlabel = t.Label(self.graphicframe, textvariable=self.text).pack()
+
+    def roll4(self, event):
+        self.dieval = 4
+        self.dice()
+        self.text.set(("Your D4 roll is", self.rollnum))
+        print(self.rollnum)
+
+
+    def roll6(self, event):
+        self.dieval = 6
+        self.dice()
+        self.text.set(("Your D6 roll is", self.rollnum))
+        print(self.rollnum)
+
+
+    def roll8(self, event):
+        self.dieval = 8
+        self.dice()
+        self.text.set(("Your D8 roll is", self.rollnum))
+        print(self.rollnum)
+
+
+    def roll10(self, event):
+        self.dieval = 10
+        self.dice()
+        self.text.set(("Your D10 roll is", self.rollnum))
+        print(self.rollnum)
+
+
+    def roll12(self, event):
+        self.dieval = 12
+        self.dice()
+        self.text.set(("Your D12 roll is", self.rollnum))
+        print(self.rollnum)
+
+
+    def roll20(self, event):
+        self.dieval = 20
+        self.dice()
+        self.text.set(("Your D20 roll is", self.rollnum))
+        print(self.rollnum)
+
+
+    def dice(self):
+        if self.dieval == 4:
+            self.rollnum = rm.randint(1, 4)
+        if self.dieval == 6:
+            self.rollnum = rm.randint(1, 6)
+        if self.dieval == 8:
+            self.rollnum = rm.randint(1, 8)
+        if self.dieval == 10:
+            self.rollnum = rm.randint(1, 10)
+        if self.dieval == 12:
+            self.rollnum = rm.randint(1, 12)
+        if self.dieval == 20:
+            self.rollnum = rm.randint(1, 20)
 
     def startgame(self, event):
         print('started')
@@ -52,7 +110,6 @@ class dndApp:
         self.beginjourney.destroy()
         self.ingameinsructions = t.Label(self.textframe, text="Select a Button to Begin Rolling")
         self.ingameinsructions.pack()
-        self.dicecanvas.create_rectangle(115, 50, 265, 200)
         self.die4.pack(side='left')
         self.die6.pack(side="left")
         self.die8.pack(side='left')
@@ -60,20 +117,6 @@ class dndApp:
         self.die12.pack(side='left')
         self.die20.pack(side='left')
 
-
-    def dice(self):
-        if self.dieval == 4:
-            return
-        if self.dieval == 6:
-            return
-        if self.dieval == 8:
-            return
-        if self.dieval == 10:
-            return
-        if self.dieval == 12:
-            return
-        if self.dieval == 20:
-            return
 
 
 def main():
