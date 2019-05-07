@@ -1,3 +1,1 @@
-# G-U-I
-gui
-GUI for a Dice Simulator
+This is a dice simulator that accounts for the dice required for tabletop RPG's.
